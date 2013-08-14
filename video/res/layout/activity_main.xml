@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,10 +33,15 @@
 
     <SurfaceView
         android:id="@+id/surface_camera"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
         android:layout_alignLeft="@+id/surface_view1"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp" />
+   <VideoView 
+         android:layout_height="fill_parent"
+         android:layout_width="fill_parent" 
+         android:id="@+id/VideoView" />
+    
 
 </RelativeLayout>

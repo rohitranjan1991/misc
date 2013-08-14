@@ -483,7 +483,7 @@ public class StreamProxy implements Runnable {
                 while (isRunning && cbToSend>0 && !client.isClosed()) {
 
                     // See if there's more to send
-                    File file = new File(localPath);
+                    File file = new File(tempFile.getAbsolutePath());
                     fc++;
                     int cbSentThisBatch = 0;
                     if (file.exists()) {

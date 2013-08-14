@@ -36,6 +36,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 public class MainActivity extends Activity implements Callback, PreviewCallback {
 
@@ -56,6 +57,7 @@ public class MainActivity extends Activity implements Callback, PreviewCallback 
 	private SurfaceView surfaceView1;
 	private SurfaceHolder surfaceHolder1;
 	File tempFile=null;
+	VideoView videoView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -65,7 +67,7 @@ public class MainActivity extends Activity implements Callback, PreviewCallback 
 		surfaceView = (SurfaceView) findViewById(R.id.surface_camera);
 		mCamera = Camera.open();
 		mCamera.setPreviewCallbackWithBuffer(this);
-
+		 videoView = (VideoView)findViewById(R.id.VideoView);
 		surfaceHolder = surfaceView.getHolder();
 		surfaceHolder.addCallback(this);
 		surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
@@ -110,16 +112,21 @@ public class MainActivity extends Activity implements Callback, PreviewCallback 
 							}
 							}
 							else{
+								//http://stackoverflow.com/questions/8809608/using-an-arbitrary-stream-as-a-source-for-mediaplayer
+								//http://stackoverflow.com/questions/5343730/mediaplayer-stutters-at-start-of-mp3-playback/5432091#5432091
 								InputStream _remoteStream = sender.getInputStream();
 								
 								 File tempFile = File.createTempFile("abc","mp4");
 							        tempFile.deleteOnExit();
 							        FileInputStream _localInStream = new FileInputStream(tempFile);
+							        
 							        FileOutputStream _localOutStream = new FileOutputStream(tempFile);
 							        int buffered = bufferMedia(
 							                _remoteStream, _localOutStream, buff.length      // = 128KB for instance
 							            );
 							        
+							        videoView.setVideoPath(tempFile.getAbsolutePath());
+							        videoView.start();
 							        
 							        
 							        
@@ -504,7 +511,7 @@ public class StreamProxy implements Runnable {
                             cbSentThisBatch += cbRead;
                         }
                         input.close();
-                    }
+                    } 
 
                     // If we did nothing this batch, block for a second
                     if (cbSentThisBatch == 0) {

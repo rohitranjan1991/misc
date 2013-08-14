@@ -30,7 +30,8 @@
         android:layout_alignLeft="@+id/surface_camera"
         android:layout_centerVertical="true"
         android:text="From Stream : " />
-
+   
+    
     <SurfaceView
         android:id="@+id/surface_camera"
         android:layout_width="10dp"
@@ -38,10 +39,14 @@
         android:layout_alignLeft="@+id/surface_view1"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp" />
-   <VideoView 
-         android:layout_height="fill_parent"
-         android:layout_width="fill_parent" 
-         android:id="@+id/VideoView" />
-    
+
+   <VideoView
+       android:id="@+id/VideoView"
+       android:layout_width="100dp"
+       android:layout_height="100dp"
+       android:layout_alignParentRight="true"
+       android:layout_below="@+id/textView2"
+       android:layout_marginRight="17dp"
+       android:layout_marginTop="18dp" />
 
 </RelativeLayout>

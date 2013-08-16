@@ -7,7 +7,7 @@
     
     
     <com.example.video1.receive_view
-       android:id="@+id/custom_surface_view"
+       android:id="@+id/custom_receive_view"
        android:layout_width="fill_parent"
        android:layout_height="150dp"
        android:layout_marginTop="30dp" />

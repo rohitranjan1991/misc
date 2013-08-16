@@ -30,23 +30,33 @@
         android:layout_alignLeft="@+id/surface_camera"
         android:layout_centerVertical="true"
         android:text="From Stream : " />
-   
-    
-    <SurfaceView
-        android:id="@+id/surface_camera"
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:layout_alignLeft="@+id/surface_view1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp" />
+
+   <SurfaceView
+       android:id="@+id/surface_camera"
+       android:layout_width="40dp"
+       android:layout_height="40dp"
+       android:layout_alignLeft="@+id/surface_view1"
+       android:layout_below="@+id/textView2"
+       android:layout_marginLeft="16dp"
+       android:layout_marginTop="30dp"
+       android:layout_toLeftOf="@+id/VideoView" />
 
    <VideoView
        android:id="@+id/VideoView"
        android:layout_width="100dp"
-       android:layout_height="100dp"
-       android:layout_alignParentRight="true"
-       android:layout_below="@+id/textView2"
-       android:layout_marginRight="17dp"
-       android:layout_marginTop="18dp" />
+       android:layout_height="150dp"
+       android:layout_below="@+id/textView1"
+       android:layout_marginLeft="20dp"
+       android:layout_toRightOf="@+id/surface_view1" />
+
+   <com.example.video.sv
+       android:id="@+id/custom_surface_view"
+       android:layout_width="40dp"
+       android:layout_height="40dp"
+       android:layout_alignLeft="@+id/VideoView"
+       android:layout_alignParentBottom="true"
+       android:layout_alignRight="@+id/VideoView"
+       android:layout_below="@+id/surface_camera"
+       android:layout_marginTop="30dp" />
 
 </RelativeLayout>
